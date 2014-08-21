@@ -1,3 +1,8 @@
-<div id='container'>
+<div id='container' ng-controller= "LinksController">
+  <ul>
+    <input type="text" placeholder="Enter a URL for which to search" ng-model="links.url"></input>
+    <li ng-repeat="link in data.links | filter:links.url | orderBy:'-visits'"><a href="api/links/{{link.code}}">{{link.url}}</a>{{link.visits}}</li>
+    <!-- URL:{{link.url}} SHORTCODE:{{link.code}} CLICKS:{{link.visits}}</li> -->
+  </ul>
   <!-- Your html here -->
 </div>
